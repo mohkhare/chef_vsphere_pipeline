@@ -12,9 +12,9 @@ node{
         stage('Get Chef Repo'){
                         
             if (isUnix()) {
-                sh "knife vsphere template list"
+                sh "knife cookbook list"
             } else {
-                bat(/knife vsphere template list/)
+                bat(/knife cookbook list/)
             }
 
         }       
