@@ -9,7 +9,7 @@ node{
 
         }
         
-        stage('Get Chef Repo'){
+        stage('Check Knife cookbook'){
                         
             if (isUnix()) {
                 sh "knife cookbook list"
@@ -17,7 +17,17 @@ node{
                 bat(/knife cookbook list/)
             }
 
-        }       
+        }    
+
+        stage('Check Knife vsphere'){
+                        
+            if (isUnix()) {
+                sh "knife vsphere template list"
+            } else {
+                bat(/knife vsphere template list/)
+            }
+
+        }      
 
                 
         // stage('Creat VM') {
