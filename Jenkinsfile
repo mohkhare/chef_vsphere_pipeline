@@ -30,14 +30,14 @@ node('master') {
         }      
 
                 
-        // stage('Creat VM') {
+         stage('Creat VM') {
 
-        //     if (isUnix()) {
-        //         sh "knife vsphere vm clone chefAutoMat247 --template CentOsTemplate --start true --node-name chefAutoMat247 --resource-pool 'Compute/Chef_Test' --cspec CentOs_Chef --cips 10.118.41.247/24 --cdomain csa.local --verbose"
-        //     } else {
-        //         bat(/knife vsphere vm clone chefAutoMat247 --template CentOsTemplate --start true --node-name chefAutoMat247 --resource-pool "Compute\/\Chef_Test" --cspec CentOs_Chef --cips 10.118.41.247\/\24 --cdomain csa.local --verbose/)
-        //     }
-        // }
+             if (isUnix()) {
+                 sh "knife vsphere vm clone chefAutoMat247 --template CentOsTemplate --start true --node-name chefAutoMat247 --resource-pool 'Compute/Chef_Test' --cspec CentOs_Chef --cips 10.118.41.247/24 --cdomain csa.local --verbose"
+             } else {
+                 bat(/knife vsphere vm clone chefAutoMat247 --template CentOsTemplate --start true --node-name chefAutoMat247 --resource-pool "Compute\/\Chef_Test" --cspec CentOs_Chef --cips 10.118.41.247\/\24 --cdomain csa.local --verbose/)
+             }
+         }
         
         
         // stage('Add VM as chef node') {
